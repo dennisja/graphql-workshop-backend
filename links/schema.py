@@ -32,7 +32,7 @@ class CreateLink(graphene.Mutation):
         title = graphene.String()
 
     def mutate(self, info, url, title):
-        user = info.contextl.user or None
+        user = info.context.user or None
 
         link = Link(url=url, title=title, posted_by=user)
         link.save()
